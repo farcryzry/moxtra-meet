@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8"/>
 </head>
-<body>
+<body style="margin:0;overflow:hidden;">
 
-<h3><!--<a id="getToken" href="javascript:get_token();"></a>-->Moxtra - Host Meet</h3>
-
-<div id="meet-container"></div>
+<div id="meet-container" style="height:100%;width:100%"></div>
 
 <!-- Include External JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -21,13 +19,29 @@
 <script type="text/javascript" src="/javascripts/meet.js"></script>
 
 <script type="text/javascript">
-
-
     $(function () {
         $('#meet-container').html('');
-        maodou.startMeet({id: "123456", firstName: "maodou.io", lastName: ""});
-    });
+        maodou.meetSettings.width ="100%";
+        maodou.meetSettings.height= "100%";
 
+        <% if(type === 'meet') { %>
+
+        maodou.startMeet({id: "<%=id%>",
+            firstName: "<%=firstName%>",
+            lastName: "<%=lastName%>",
+            pictureUrl: "<%=pictureUrl%>"});
+
+        <% } else if(type === 'join') { %>
+
+        maodou.joinMeet({
+            id: "<%=id%>",
+            firstName: "<%=firstName%>",
+            lastName: "<%=lastName%>",
+            meetingKey: "<%=meetingKey%>",
+            pictureUrl: "<%=pictureUrl%>"
+        });
+        <% } %>
+    });
 </script>
 </body>
 </html>

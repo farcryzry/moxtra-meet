@@ -1,61 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
 </head>
 <body>
 <div>
     <h3>Moxtra - Join Meet</h3>
-    <label for="meeting_key">meeting id: </label><input  id='meeting_key' type='text' value=''/>
+    <label for="meeting_key">meeting id: </label><input id='meeting_key' type='text' value=''/>
     <label for="user_name">your name: </label><input id='user_name' type='text' value='Jacob'/>
 
     <a id="join-meet" href="#">Join</a>
-
 </div>
-
-<div id="meet-container"></div>
-<!-- Include Moxtra JavaScript Library -->
-<script type="text/javascript" src="/javascripts/moxtra-latest.js" id="moxtrajs" data-client-id="uGvPYrH651o"></script>
 
 <!-- Include External JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
 <script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
 
-<script type="text/javascript">
-    var join_meet = function() {
-        var options = {
-            //session_key: key.value,
-            session_key: $('#meeting_key').val().split(' ').join(''),
-            user_name: $('#user_name').val(),
-            iframe: true,
-            tagid4iframe: "meet-container", //ID of the HTML tag within which the Meet window will show up. Refer https://developer.grouphour.com/moxo/docs-js-sdk/#meet
-            iframewidth: "720px",
-            iframeheight: "300px",
-            extension: { "show_dialogs": { "meet_invite": true } },
-            start_meet: function(event) {
-                //alert("session key: " + event.session_key + " session id: " + event.session_id);
-            },
-            error: function(event) {
-                alert("error code: " + event.error_code + " message: " + event.error_message);
-            },
-            end_meet: function(event) {
-                alert("Meet ended by host event");
-            },
-            exit_meet: function(event) {
-                alert("Meet exit event");
-            }
-        };
-        Moxtra.joinMeet(options);
-    }
+<div id="meet-container"></div>
+<!-- Include Moxtra JavaScript Library -->
+<script type="text/javascript" src="/javascripts/moxtra-latest.js" id="moxtrajs" data-client-id="uGvPYrH651o"></script>
 
-    $(function() {
+<script type="text/javascript" src="/javascripts/meet.js"></script>
+
+<script type="text/javascript">
+    $(function () {
 
         $('#meet-container').html('');
 
-        $('#join-meet').click(function() {
+        $('#join-meet').click(function () {
             $('#meet-container').html('');
-            join_meet();
+
+            maodou.joinMeet({
+                id: "654321",
+                firstName: $('#user_name').val(),
+                LastName: "",
+                meetingKey: $('#meeting_key').val(),
+                pictureUrl: "http://q.qlogo.cn/qqapp/101150539/212C7B1BDB1EBE6232A1EAEB5C8CED0A/100"
+            });
         });
     });
 </script>
