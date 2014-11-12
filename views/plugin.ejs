@@ -21,14 +21,13 @@
 <script type="text/javascript">
     $(function () {
         $('#meet-container').html('');
+
         maodou.meetSettings.width ="100%";
         maodou.meetSettings.height= "100%";
 
-        var fn = window.parent["<%=callback%>"];
-        console.log(fn);
-        console.log(typeof fn);
-        if(typeof fn === 'function') {
-            maodou.eventHandler = fn;
+        maodou.eventHandler = function (event) {
+            console.log("event: " + JSON.stringify(event));
+            parent.postMessage(event, 'http://localhost:3000');
         }
 
         <% if(type === 'meet') { %>
