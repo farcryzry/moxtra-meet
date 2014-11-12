@@ -24,6 +24,13 @@
         maodou.meetSettings.width ="100%";
         maodou.meetSettings.height= "100%";
 
+        var fn = window.parent["<%=callback%>"];
+        console.log(fn);
+        console.log(typeof fn);
+        if(typeof fn === 'function') {
+            maodou.eventHandler = fn;
+        }
+
         <% if(type === 'meet') { %>
 
         maodou.startMeet({id: "<%=id%>",

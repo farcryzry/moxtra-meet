@@ -3,6 +3,13 @@
  */
 
 
+/*
+
+Event in meet: start/end/join/leave
+{action: "end", binder_id: "BjuZ7mTdUpT1aWsTXJGuemK", session_key: "304849769", session_id: "40a777a4-06a1-40e5-b6c8-59f7a88c7a82", meet_id: "304849769"}
+
+*/
+
 (function (maodou, Moxtra, CryptoJS) {
     //Private Property
 
@@ -55,6 +62,10 @@
         Moxtra.setup(init_options);
     };
 
+    maodou.eventHandler = function(event) {
+        console.log("event: " + JSON.stringify(event));
+    };
+
     //Private Method
     var startMeet = function (user, access_token) {
         var meet_options = {
@@ -67,13 +78,16 @@
             access_token: access_token,
             start_meet: function (event) {
                 console.log("Meet Started - session_id: " + event.session_id + "session_key: " + event.session_key);
+                maodou.eventHandler(event);
                 //Your application server can upload files to meet using the session_id and session_key
             },
             error: function (event) {
                 console.log("error code: " + event.error_code + " message: " + event.error_message);
+                maodou.eventHandler(event);
             },
             end_meet: function (event) {
                 console.log("Meet Ended");
+                maodou.eventHandler(event);
             }
         };
         Moxtra.meet(meet_options);
@@ -90,16 +104,20 @@
             extension: maodou.meetSettings.extension,
             access_token: access_token,
             start_meet: function (event) {
-                //alert("session key: " + event.session_key + " session id: " + event.session_id);
+                console.log("Started session key: " + event.session_key + " session id: " + event.session_id);
+                maodou.eventHandler(event);
             },
             error: function (event) {
-                alert("error code: " + event.error_code + " message: " + event.error_message);
+                console.log("error code: " + event.error_code + " message: " + event.error_message);
+                maodou.eventHandler(event);
             },
             end_meet: function (event) {
-                alert("Meet ended by host event");
+                console.log("Meet ended by host event");
+                maodou.eventHandler(event);
             },
             exit_meet: function (event) {
-                alert("Meet exit event");
+                console.log("Meet exit event");
+                maodou.eventHandler(event);
             }
         };
         Moxtra.joinMeet(options);

@@ -12,14 +12,20 @@
     </ul>
 
     <h3>Create meet (can be put into iframe):  </h3>
-    <span>http://localhost:3000/plugin/meet?id=123456&firstName=maodou.io&lastName=&pictureUrl=http://g.twimg.com/Twitter_logo_blue.png</span>
-    <!--
-    <iframe src="http://localhost:3000/plugin/meet?id=123456&firstName=maodou.io&lastName=&pictureUrl=http://g.twimg.com/Twitter_logo_blue.png" style="border:0;width:750px;height:400px;"></iframe>
-    -->
+    <span>http://localhost:3000/plugin/meet?id=123456&firstName=maodou.io&lastName=&pictureUrl=http://g.twimg.com/Twitter_logo_blue.png&callback=maodou_io_callback</span>
+
+    <iframe src="http://localhost:3000/plugin/meet?id=123456&firstName=maodou.io&lastName=&pictureUrl=http://g.twimg.com/Twitter_logo_blue.png&callback=maodou_io_callback" style="border:0;width:750px;height:400px;"></iframe>
+
 
     <h3>Join meet (can be put into iframe):  </h3>
-    <span>http://localhost:3000/plugin/join?id=221133&firstName=Jacob&lastName=Zhou&pictureUrl=http://www.booksatruestory.com/wp-content/uploads/2013/08/apple-logo-small.jpg&meetingKey=824%20133%20290</span>
-    <!--<iframe src="http://localhost:3000/plugin/join?id=221133&firstName=Jacob&lastName=Zhou&pictureUrl=http://www.booksatruestory.com/wp-content/uploads/2013/08/apple-logo-small.jpg&meetingKey=824%20133%20290" style="border:0;width:750px;height:400px;">Join</iframe>
+    <span>http://localhost:3000/plugin/join?id=221133&firstName=Jacob&lastName=Zhou&pictureUrl=http://www.booksatruestory.com/wp-content/uploads/2013/08/apple-logo-small.jpg&meetingKey=824%20133%20290&callback=maodou_io_callback</span>
+    <!--<iframe src="http://localhost:3000/plugin/join?id=221133&firstName=Jacob&lastName=Zhou&pictureUrl=http://www.booksatruestory.com/wp-content/uploads/2013/08/apple-logo-small.jpg&meetingKey=824%20133%20290&callback=maodou_io_callback" style="border:0;width:750px;height:400px;">Join</iframe>
 -->
   </body>
+  <script>
+      maodou_io_callback = function(event) {
+        console.log('event handled in parent of iframe');
+        console.log("event: " + JSON.stringify(event));
+      };
+  </script>
 </html>

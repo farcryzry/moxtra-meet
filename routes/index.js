@@ -21,7 +21,8 @@ router.get('/plugin/:type?', function (req, res) {
         firstName: req.query.firstName || '',
         lastName: req.query.lastName || '',
         pictureUrl: req.query.pictureUrl || '',
-        meetingKey: req.query.meetingKey || ''
+        meetingKey: req.query.meetingKey || '',
+        callback: req.query.callback || ''
     };
 
     res.render('plugin', model);
