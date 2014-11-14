@@ -28,6 +28,8 @@
         maodou.eventHandler = function (event) {
             console.log("event: " + JSON.stringify(event));
             parent.postMessage(event, 'http://localhost:3000');
+            parent.postMessage(event, 'http://test.maodou.io');
+            parent.postMessage(event, 'http://maodou.io');
         }
 
         <% if(type === 'meet') { %>
