@@ -267,7 +267,7 @@ Moxtra.addListener = function (e, t, n) {
     this.appKey = e.appKey
 }, Moxtra._createWidgetElement = function (e, t, n) {
     var o, r;
-    return o = document.createElement("iframe"),
+    return o = document.getElementsByTagName('iframe').length == 0 ? document.createElement("iframe") : document.getElementsByTagName('iframe'),
         o.src = e, o.setAttribute("frameborder", "0"),
         o.setAttribute("allowtransparency", "true"),
         o.style.backgroundColor = "transparent",
@@ -798,6 +798,7 @@ Moxtra.addListener = function (e, t, n) {
                 window._mtool = o, o.init('<iframe id="_mtoolf" src="' + Moxtra._SSOUrl(null, 4) + '" frameborder="0" allowtransparency="true" allowfullscreen="true" style="width: 100%; height: 100%; overflow: scroll; background-color: transparent;"></iframe>', 1)
             }
         }, m = 0, l = n.length; l > m; m++)t = n[m], o(t);
+
         b && (i ? eventFire(i, "click") : Moxtra.meet(b)), M && (s ? eventFire(s, "click") : Moxtra.note(M));
         var E = Moxtra_Session.get("meet_endurl");
         E && Moxtra.endMeet(E)
