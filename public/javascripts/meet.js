@@ -44,7 +44,7 @@ Event in meet: start/end/join/leave
 
         var init_options = {
             uniqueid: user.id || "",
-            firstname: "毛豆" || "",
+            firstname: user.firstName || "",
             lastname: user.lastName || "",
             pictureurl: user.pictureUrl || "http://maodou.io/assets/maodou.png",
             timestamp: timestamp,
