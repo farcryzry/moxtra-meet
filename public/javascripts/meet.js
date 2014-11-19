@@ -14,8 +14,15 @@ Event in meet: start/end/join/leave
     //Private Property
 
     // Create Signature
-    var client_id = "uGvPYrH651o";
-    var client_secret = "pIWm8f-u91g";
+    //moxtra.com
+    //var client_id = "uGvPYrH651o";
+    //var client_secret = "pIWm8f-u91g";
+
+    //grouphour.com
+    var client_id = "lu9gyOkcLX0";
+    var client_secret = "pGSuDGTBSP8";
+    var org_id = "P1Nqcw4AEBt6zgOFKGOALh8";
+
     var timestamp = new Date().getTime();
 
     //public Property
@@ -49,6 +56,7 @@ Event in meet: start/end/join/leave
             pictureurl: user.pictureUrl || "http://maodou.io/assets/maodou.png",
             timestamp: timestamp,
             signature: signature,
+            orgid: org_id,
             get_accesstoken: function (result) {
                 console.log("access_token: " + result.access_token + " expires in: " + result.expires_in);
                 if (typeof callback === "function") {

@@ -17,7 +17,7 @@ router.get('/join', function (req, res) {
 router.get('/plugin/:type?', function (req, res) {
     var model = {
         type: req.param('type'),
-            id: req.query.id || '',
+        id: req.query.id || '',
         firstName: req.query.firstName || '',
         lastName: req.query.lastName || '',
         pictureUrl: req.query.pictureUrl || '',
