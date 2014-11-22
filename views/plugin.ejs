@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html style="height:100%">
+<html>
 <head>
     <meta charset="UTF-8"/>
+    <link href="/stylesheets/style.css" rel="stylesheet">
     <style type="text/css">
         iframe {
             overflow: hidden !important;
         }
     </style>
 </head>
-<body style="margin:0;overflow:hidden;height:100%">
+<body style="overflow:hidden">
 
-<div id="meet-container" style="height:100%;width:100%"></div>
+<div id="meet-container"></div>
 
 <!-- Include External JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -22,7 +23,8 @@
 
 <!--<script type="text/javascript" src="/javascripts/moxtra-latest.js" id="moxtrajs" data-client-id="uGvPYrH651o"></script>-->
 
-<script type="text/javascript" src="https://www.grouphour.com/api/js/moxtra-latest.js" id="moxtrajs" data-client-id="lu9gyOkcLX0"></script>
+<script type="text/javascript" src="https://www.grouphour.com/api/js/moxtra-latest.js" id="moxtrajs"
+        data-client-id="lu9gyOkcLX0"></script>
 <!--<script type="text/javascript" src="/javascripts/moxtra-latest.grouphour.js" id="moxtrajs" data-client-id="lu9gyOkcLX0"></script>-->
 
 <script type="text/javascript" src="/javascripts/meet.js"></script>
@@ -31,8 +33,8 @@
     $(function () {
         $('#meet-container').html('');
 
-        maodou.meetSettings.width ="100%";
-        maodou.meetSettings.height= "100%";
+        maodou.meetSettings.width = "100%";
+        maodou.meetSettings.height = "100%";
 
         maodou.eventHandler = function (event) {
             console.log("event: " + JSON.stringify(event));
@@ -43,10 +45,12 @@
 
         <% if(type === 'meet') { %>
 
-        maodou.startMeet({id: "<%=id%>",
+        maodou.startMeet({
+            id: "<%=id%>",
             firstName: "<%=firstName%>",
             lastName: "<%=lastName%>",
-            pictureUrl: "<%=pictureUrl%>"});
+            pictureUrl: "<%=pictureUrl%>"
+        });
 
         <% } else if(type === 'join') { %>
 

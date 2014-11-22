@@ -5,10 +5,10 @@
 
 /*
 
-Event in meet: start/end/join/leave
-{action: "end", binder_id: "BjuZ7mTdUpT1aWsTXJGuemK", session_key: "304849769", session_id: "40a777a4-06a1-40e5-b6c8-59f7a88c7a82", meet_id: "304849769"}
+ Event in meet: start/end/join/leave
+ {action: "end", binder_id: "BjuZ7mTdUpT1aWsTXJGuemK", session_key: "304849769", session_id: "40a777a4-06a1-40e5-b6c8-59f7a88c7a82", meet_id: "304849769"}
 
-*/
+ */
 
 (function (maodou, Moxtra, CryptoJS) {
     //Private Property
@@ -70,7 +70,7 @@ Event in meet: start/end/join/leave
         Moxtra.setup(init_options);
     };
 
-    maodou.eventHandler = function(event) {
+    maodou.eventHandler = function (event) {
         console.log("event: " + JSON.stringify(event));
     };
 
