@@ -10,6 +10,8 @@
 
  */
 
+
+
 (function (maodou, Moxtra, CryptoJS) {
     //Private Property
 
@@ -51,7 +53,7 @@
 
         var init_options = {
             uniqueid: user.id || "",
-            firstname: user.firstName || "",
+            firstname: user.firstName || $.t('guest'),
             lastname: user.lastName || "",
             pictureurl: user.pictureUrl || "http://maodou.io/assets/maodou.png",
             timestamp: timestamp,

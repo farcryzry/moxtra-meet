@@ -12,9 +12,11 @@
 <iframe id="recording"></iframe>
 
 <!-- Include External JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
-<script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/cryptojslib/rollups/hmac-sha256.js"></script>
+<script src="/cryptojslib/components/enc-base64-min.js"></script>
+<script src="/i18next/i18next.js"></script>
+<script src="/javascripts/init.js"></script>
 
 <!-- Include Moxtra JavaScript Library -->
 <!--<script type="text/javascript" src="https://www.moxtra.com/api/js/moxtra-latest.js" id="moxtrajs" data-client-id="uGvPYrH651o"></script>-->
@@ -32,7 +34,7 @@
     var meetId = "<%=meetId%>";
 
     $(function () {
-        maodou.getToken({id: 1}, function (user, access_token) {
+        maodou.getToken({id: 123456}, function (user, access_token) {
             $.get('/rest/' + meetId + '/' + access_token, function (data) {
                 console.log(data);
                 if (data.data != null) {
@@ -40,7 +42,7 @@
                         //$('.recordings').append(JSON.stringify(data.data.recordings));
                         $('#recording').attr('src', data.data.recordings[0].download_url);
                     } else {
-                        alert('Recording is not ready yet!')
+                        alert($.t("recordingNotReady"));
                     }
                 }
             });
