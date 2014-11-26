@@ -81,6 +81,9 @@
         var meet_options = {
             iframe: true, //To open the meet in the same window within an iFrame.
             tagid4iframe: maodou.meetSettings.containerId, // Refer https://developer.grouphour.com/moxo/docs-js-sdk/#meet
+            allowfullscreen: true,
+            webkitallowfullscreen: true,
+            mozallowfullscreen: true,
             iframewidth: maodou.meetSettings.width,
             iframeheight: maodou.meetSettings.height,
             border: maodou.meetSettings.border || false,
