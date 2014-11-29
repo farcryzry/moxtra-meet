@@ -47,12 +47,13 @@
     // Initialize user and get access token
     maodou.getToken = function (user, callback) {
 
-        var hash = CryptoJS.HmacSHA256(client_id + user.id + timestamp, client_secret);
+        var unique_id = user.id || "guest";
+        var hash = CryptoJS.HmacSHA256(client_id + unique_id + timestamp, client_secret);
         var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
         var signature = hashInBase64.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
 
         var init_options = {
-            uniqueid: user.id || "guest",
+            uniqueid: unique_id,
             firstname: user.firstName || $.t('guest'),
             lastname: user.lastName || "",
             pictureurl: user.pictureUrl || "http://maodou.io/assets/maodou.png",
