@@ -52,7 +52,7 @@
         var signature = hashInBase64.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
 
         var init_options = {
-            uniqueid: user.id || "",
+            uniqueid: user.id || "guest",
             firstname: user.firstName || $.t('guest'),
             lastname: user.lastName || "",
             pictureurl: user.pictureUrl || "http://maodou.io/assets/maodou.png",
